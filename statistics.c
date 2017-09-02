@@ -51,4 +51,12 @@ extern double t_value(int mean, int n, int expected, int stdev){
     return tValue;
 }
 
+extern int* diffs(int** sample, int n){
+    int* diffs = malloc(sizeof(int) * n);
+    for(int i = 0; i < n; i++){
+        diffs[i]= sample[i][0] - sample[i][1];
+    }
+    return diffs;
+}
+
 #endif

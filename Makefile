@@ -2,7 +2,7 @@
 CFILES = #statistics
 
 # Files to compile that do have a main() function
-TARGETS = starter
+TARGETS = oneSampleTtest pairedTtest
 
 # Let the programmer choose 32 or 64 bits, but default to 64
 BITS ?= 64
