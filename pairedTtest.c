@@ -41,7 +41,9 @@ int main(int argc, char **argv) {
   }
   double mean_ = mean(dMean, n);
   double std = standard_dev(dMean, mean_, n);
-  double tVal = t_value(mean_, n, expected, std);
-  printf("Mean: %f\nStdev: %f\nT_Value: %f\n", mean_, std, tVal);
+  double stdError = standardError(std, n);
+
+  double tVal = tStat(mean_, stdError); //t_value(mean_, n, expected, std);
+  printf("Mean: %f\nStandard Deviation %f\nStdError: %f\nT_Value: %f\n", mean_, std, stdError, tVal);
   
 }

@@ -59,4 +59,13 @@ extern int* diffs(int** sample, int n){
     return diffs;
 }
 
+extern double standardError(double stdDev, int n){
+    double rtN = sqrt((double)n);
+    double error = stdDev / rtN;
+    return error;
+}
+
+extern double tStat(double mean, double stdError){
+    return mean / stdError;
+}
 #endif
