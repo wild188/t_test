@@ -4,6 +4,7 @@
 #include <string.h>
 #include <math.h>
 #include "statistics.c"
+#include "fileReader.c"
 
 /*
  * help() - Print a help message.

@@ -4,6 +4,7 @@
 #include <string.h>
 #include <math.h>
 #include "statistics.c"
+#include "fileReader.c"
 
 /*
  * grep_file() - display all lines of filename that contain searchstr
@@ -33,20 +34,43 @@ void help(char *progname) {
     printf("With no FILE, read standard input\n");
 }
 
+void runTest(int* sample, int n, int expected){
+  double mean_ = mean(sample, n);
+  double std = standard_dev(sample, mean_, n);
+  double tVal = t_value(mean_, n, expected, std);
+  printf("Mean: %f\nStdev: %f\nT_Value: %f\n", mean_, std, tVal);
+}
+
 /*
  * main() - The main routine parses arguments and dispatches to the
  *          task-specific code.
  */
 int main(int argc, char **argv) {
-  int n = 6;
-  int expected = 10000;
-  int sample[] = {11300, 9890, 10400, 9900, 10545, 12334};
-  double mean_ = mean(sample, n);
-  double std = standard_dev(sample, mean_, n);
-  double tVal = t_value(mean_, n, expected, std);
-  printf("Mean: %f\nStdev: %f\nT_Value: %f\n", mean_, std, tVal);
+  int expected = 0;
+  if(argc > 1){
+    printf("Expected value: %s\n\n", argv[1]);
+    expected = atoi(argv[1]);
+  }
   
+  //int n = 6;
+  //int expected = 10000;
+  //int sample[] = {11300, 9890, 10400, 9900, 10545, 12334};
+  //runTest(sample, n, expected);
+
+  char* filename = "input.txt";
+  int* lines = malloc(sizeof(int));
+  char** contents = readFile(filename, lines);
+  int* test = malloc(sizeof(int) * *lines);
   
+  printf("Input dataset:\n");
+  for(int i = 0; i < *lines; i++){
+    //printf("%s", contents[i]);
+    test[i] = atoi(contents[i]);
+    printf("%i\n", test[i]);
+  }
+  printf("\n Results: \n");
+  runTest(test, *lines, expected);
+
   /* for getopt */
     // long opt;
 
