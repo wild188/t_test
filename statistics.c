@@ -38,10 +38,8 @@ extern double standard_dev(int* sample, double mean, int len){
     for(int i = 0; i < len; i++){
         double diff = sample[i] - mean;
         totalDiff2rd += diff * diff;
-
     }
     variance = totalDiff2rd / (double)(len -1);
-
     return sqrt(variance);
 }
 
@@ -66,6 +64,6 @@ extern double standardError(double stdDev, int n){
 }
 
 extern double tStat(double mean, double stdError){
-    return mean / stdError;
+    return fabs(mean / stdError);
 }
 #endif
