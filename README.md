@@ -1,4 +1,7 @@
-This program calculated statistical probability using T tests. Specifically a one sample T test and a paired T test. Before running the programs they must be compiled using the included Makefile. Instructions on how to run each program can be found below.
+Billy DeLucia                                                                   wld217                                                                          CSE 411: Advanced Programming Techniques
+Assignment 1 Fall 2017
+
+This program calculates statistical probability using T tests. Specifically a one sample T test and a paired T test. Before running the programs they must be compiled using the included Makefile. Instructions on how to run each program can be found below.
 
 One Sample T Test:
 --------------------------------------------------------------------------------
@@ -11,7 +14,7 @@ Example:
 10545
 12334
 
-Then execute the program with the expected value as the first argument.
+Then execute the program with the expected value as the first and only argument.
 Example:
 ./obj64/oneSampleTtest 10000
 
